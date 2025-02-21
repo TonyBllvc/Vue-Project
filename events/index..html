@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- "Title" is coming from our app.js file, through out Vue -->
+        <!-- Data template -->
+        <p>{{ title }} - {{ author }} - {{ age }}</p>
+
+        <!-- Events -->
+        <!-- 
+        v-on: this  a type of vue property known as a 'directive'. 
+        v: stands for vue
+        on: name of directive 
+        -->
+        <button v-on:click="age++"> Increase age</button>
+        <button v-on:click="age--"> Decrease age</button>
+
+        <!-- 
+        A short cut
+        Now rather than us "v-on",
+        I can simply just use the '@' symbol 
+        -->
+        <div @click="title = 'Yan Doe' ">
+            Change book title
+        </div>
+
+        <!--
+         Now, if we need to handle our event within our vue app, instead of the html file
+         We define a methid within out vue app i.e app.js
+         -->
+         <button @click="changeTitle">
+            Change book title using method
+         </button>
+         <!-- I can also pass an argument through my function -->
+        <button @click="changeTitle('Oat Mille')">
+            Change book title using method
+        </button>
+         
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
