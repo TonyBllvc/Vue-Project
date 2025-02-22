@@ -29,15 +29,16 @@
 
         <!-- or  -->
         <br />
-        
+
         <!-- Without the 'v-bind' directive -->
-        <a :href="url">
+        <a :href="url" >
             Best site ever again
         </a>
 
         <div v-if="showBooks">
             <ul>
                 <li v-for="book in books" :key="book.id">
+                    <img :src="book.img" :alt="book.title" width="100" height="100" />
                     <h2> {{ book.title }} </h2>
                     <p> {{ book.author }} </p>
                 </li>
