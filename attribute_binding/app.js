@@ -1,18 +1,14 @@
 const app = Vue.createApp({
-    // Data, functions,
-    // template: '<h2>I am a template</h2>'
-    // to output a dynamic value int=side our template, we have to use:
-    // data function: Defining it the way you would within an object..
-    // .. then return the content you wish to display, i.e. "title"
     data() {
         // Data template
         return {
+            url: 'https://www.netninja.co.uk',
             showBooks: true,
-            title: "The final empire",
-            author: "Black man",
-            age: 25,
-            x: 0,
-            y: 0
+            books: [
+                { title: 'Name of the Wind', author: 'Patrick Rothfuss', isFav: true, id: 1 },
+                { title: 'The Way of Kings', author: 'Brandon Sanderson',  isFav: false, id: 2 },
+                { title: 'Good Omens', author: 'Terry Pratchett & Neil Gaiman', isFav: true, id: 3 }
+            ]
         }
     },
     methods: {
