@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        form {
+            border: dashed black 1px;
+            width: 200px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            v-model is a directive that creates a two-way binding between the input field and the data property.
+            When the input field changes, the data property changes, and vice versa.
+
+            Vue gives us an easy way to improve the user experience with forms by adding extra functionality like responsiveness and form validation.
+
+            Vue uses the v-model directive when handling forms. The v-model directive creates a two-way binding between the form input and the data property. When the input field changes, the data property changes, and vice versa.
+        -->
+        <form v-on:submit.prevent="addItem">
+            <p>
+                What do you need?
+                <input type="text" required placeholder="item name.." v-model="itemName">
+            </p>
+            <p>
+                How many?
+                <input type="number" placeholder="number of items.." v-model="itemNumber">
+            </p>
+            <button type="submit">Add item</button>
+        </form>
+
+        <div>
+            <p>Shopping list:</p>
+            <ul>
+                <li v-for="item in shoppingList">{{ item.name }}, {{ item.number}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
