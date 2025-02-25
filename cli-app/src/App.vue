@@ -1,16 +1,23 @@
 <template>
   <h2>{{ title }}</h2>
+  <Model />
 </template>
 
 <script>
 
+import Model from './model/Model.vue'
+
 export default {
   name: 'App',
+  components: {
+    Model
+  },
   data() {
     return {
       title: 'My firts vue app'
     }
   }
+  
 }
 
 </script>
@@ -30,3 +37,5 @@ h2{
   padding-bottom: 10px;
 }
 </style>
+
+
