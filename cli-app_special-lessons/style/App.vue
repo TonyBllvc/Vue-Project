@@ -1,8 +1,6 @@
 <template>
   <h2>{{ title }}</h2>
-
-  <!-- Using the Model component and passing props -->
-  <Model header="Sign up" :binding="[30, 'hello']" :dataBinding="dataBinding" theme="Sale" />
+  <Model />
 </template>
 
 <script>
@@ -16,8 +14,7 @@ export default {
   },
   data() {
     return {
-      title: 'My firts vue app',
-      dataBinding: 'hello'
+      title: 'My firts vue app'
     }
   }
   
@@ -26,6 +23,11 @@ export default {
 </script>
 
 <style >
+/*
+ Can't add global here, cause ..
+ .. the "#app" selector is not present in this file..
+ .. but in the html file.
+ */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
