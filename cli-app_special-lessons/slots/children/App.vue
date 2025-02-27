@@ -6,16 +6,7 @@
     Model is instead used as a parnet wrapper component, ..
     .. to wrap other contents, which could also be components -->
       <Model :toggle="toggleModal" theme="Default" @close="toggleModal" >
-        <!-- 
-        Now, for the "slot" directive, it is used to pass in content i.e link, subtemplates, etc.
-        .. to the child component
-         I can define a slot name, which would be used in the child component
-         So i will use "v-slot" directive to define the slot name, and then pass in the content name
-        -->
-        <template v-slot:links>
-          <a href="#">Sign up</a>
-          <a href="#">More info</a>
-        </template>
+        
         <h2>{{header}}</h2>
         <p>{{ binding[0] }}</p>
         <div class="texting" :class="{sale: theme === 'Sale', default: theme === 'Default'}">

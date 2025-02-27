@@ -1,18 +1,18 @@
 <template>
-    <div class="backdrop" @click.self="closeModal">
-        <div class="modal" :class="{sale: theme = 'Sale'}">
-            <!--
-             'slot' element represent children to be display,..
-             .. since modal was a parent component, it was able to display its children 
-              -->
-            <slot></slot>
-            <div class="actions">
-                <!-- 
-                For the 'v-slot' which was defined in my parent component,
-                I then define a "slot" element, and within it pass a 'name' attribute,..
-                .. which would be used to display the content
-                  -->
-                <slot name="links"></slot>
+    <!-- Custom event -->
+     <!-- so after creating a function within my Modal component, and passing a function to it -->
+      <!-- I then go down to my methods, and with it I write, "this.emit('close')" -->
+       <!-- Where 'close' is the customer event, which I would have created within my parent element where Modal is used -->
+    <div class="backdrop" @click="closeModal">
+        <div class="modal">
+            <div class="button">
+                <button @click="toggle">Close</button>
+            </div>
+            <h2>{{header}}</h2>
+            <p>{{ binding[0] }}</p>
+            <p>{{ dataBinding }}</p>
+            <div class="texting" :class="{sale: theme === 'Sale', default: theme === 'Default'}">
+                {{ theme }}
             </div>
         </div>
 
@@ -21,9 +21,11 @@
 
 <script>
 export default {
-    props: [ 'theme', 'toggle'],
+    props: ['header', 'binding', 'dataBinding', 'theme', 'toggle'],
     methods: {
         closeModal() {
+            // Now, I need to define close function within my parent component
+            // So that when the backdrop is clicked, the modal closes
             this.$emit('close')
         }
     }
@@ -58,11 +60,11 @@ export default {
         text-align: center;
     }
 
-    .sale{
+    .modal .sale{
         background-color: crimson;
         color: white;
     }
-    .default{
+    .modal .default{
         background-color: #03cfb4;
     }
 

@@ -6,14 +6,7 @@
              .. since modal was a parent component, it was able to display its children 
               -->
             <slot></slot>
-            <div class="actions">
-                <!-- 
-                For the 'v-slot' which was defined in my parent component,
-                I then define a "slot" element, and within it pass a 'name' attribute,..
-                .. which would be used to display the content
-                  -->
-                <slot name="links"></slot>
-            </div>
+            
         </div>
 
     </div>
