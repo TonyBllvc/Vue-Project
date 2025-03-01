@@ -1,6 +1,10 @@
 <template>
   <h2>{{ title }}</h2>
   <p>Welcome.. </p>
+  <!-- 
+  Teleportation in vue is a way to render a component in a different place in the DOM.
+  so to do that, we use the teleport tag, i.e: <teleport></teleport>, like so and we give it a 'to' attribute then the class/id from th div within the "idex.html" file
+  -->
    <teleport to=".modals" v-if="showModal">
       <Model  :theme="theme" @close="toggleModal"  @bgTheme="toggleTheme"> 
         <template v-slot:links>

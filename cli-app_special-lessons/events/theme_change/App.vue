@@ -1,26 +1,18 @@
 <template>
   <h2>{{ title }}</h2>
-
+  <p>Welcome.. </p>
    <div v-if="showModal">
-    <!-- 
-    Model is instead used as a parnet wrapper component, ..
-    .. to wrap other contents, which could also be components -->
-      <Model :toggle="toggleModal" theme="Default" @close="toggleModal" >
-        
-        <!-- 
-        Note: 
-          if we do not add a default content, the slot will display whatever is shown in the parent component i.e 'Model' in this case
-        -->
-        <h2>{{header}}</h2>
-        <p>{{ binding[0] }}</p>
-        <div class="texting" :class="{sale: theme === 'Sale', default: theme === 'Default'}">
-            {{ theme }}
-        </div>  
-
+      <Model  :theme="theme" @close="toggleModal"  @bgTheme="toggleTheme"> 
+        <template v-slot:links>
+          <a href="#">Sign up</a>
+          <a href="#">More info</a>
+        </template>
+        <h2>Ninja Giveaway</h2>
+        <p>Grab your ninja swag for half price</p>
       </Model>
    </div>
    
-   <button @click.alt="toggleModal"> Open modal(hold alt) </button>
+   <button @click="toggleModal"> Open modal </button>
 </template>
 
 <script>
@@ -36,13 +28,18 @@ export default {
     return {
       title: 'My firts vue app',
       header: 'Sign up',
+      text: 'Grab your ninja swag for half price',
       binding: [30, 'hello'],
-      showModal: false
+      showModal: false,
+      theme: 'Default'
     }
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleTheme() {
+      this.theme = this.theme == 'Default' ? 'Sale' : 'Default'
     }
   }
 
@@ -65,6 +62,7 @@ h2{
   display: inline-block;
   padding-bottom: 10px;
 }
+
 </style>
 
 

@@ -1,28 +1,31 @@
 <template>
   <h2>{{ title }}</h2>
   <p>Welcome.. </p>
-   <teleport to=".modals" v-if="showModal">
-      <Model  :theme="theme" @close="toggleModal"  @bgTheme="toggleTheme"> 
-        <template v-slot:links>
-          <a href="#">Sign up</a>
-          <a href="#">More info</a>
-        </template>
-        <h2>Ninja Giveaway</h2>
-        <p>Grab your ninja swag for half price</p>
-      </Model>
-   </teleport>
-   
-   
-   <div v-if="showModalTwo">
-      <Model  @close="toggleModalTwo"  @bgTheme="toggleTheme" :showModalTwo="showModalTwo ? 'hide' : 'show'"> 
-        <h2>Sign up to newsletter</h2>
-        <p>For updates and promo codes</p>
-      </Model>
-   </div>
+  <!-- 
+  Reuseable modals: Just has to do with conditioning two same model, different contents, within same page
+  -->
+  <div v-if="showModal">
+    <Model :theme="theme" @close="toggleModal" @bgTheme="toggleTheme">
+      <template v-slot:links>
+        <a href="#">Sign up</a>
+        <a href="#">More info</a>
+      </template>
+      <h2>Ninja Giveaway</h2>
+      <p>Grab your ninja swag for half price</p>
+    </Model>
+  </div>
 
-   <button @click="toggleModal"> Open modal </button>
-   <button @click="toggleModalTwo"> Open modal Two </button>
-</template> 
+
+  <div v-if="showModalTwo">
+    <Model @close="toggleModalTwo" @bgTheme="toggleTheme" :showModalTwo="showModalTwo ? 'hide' : 'show'">
+      <h2>Sign up to newsletter</h2>
+      <p>For updates and promo codes</p>
+    </Model>
+  </div>
+
+  <button @click="toggleModal"> Open modal </button>
+  <button @click="toggleModalTwo"> Open modal Two </button>
+</template>
 
 <script>
 
@@ -53,13 +56,13 @@ export default {
     }
   }
 
-  
+
 }
 
 </script>
 
-<style >
-#app, .modals {
+<style>
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,12 +70,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-h2{
+
+h2 {
   border-bottom: 1px solid #ddd;
   display: inline-block;
   padding-bottom: 10px;
 }
-
 </style>
-
-

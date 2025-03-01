@@ -1,0 +1,13 @@
+Installation setup
+
+First, install globally:
+ - npm install -g @vue/cli
+
+After which, you install the project app inside a folder:
+ - vue create cli-app
+
+ Notes:
+ a. make sure to unelect linter/formatter(using your spacebar)
+ b. Select 3.x (Preview)
+ c. In dedicatd config files
+ d. no (for the last yes/no question)

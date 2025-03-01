@@ -6,7 +6,7 @@
              .. since modal was a parent component, it was able to display its children 
               -->
             <slot>Default content</slot>
-            <div class="actions" v-if="showModalTwo == 'hide' ? false : true ">
+            <div class="actions">
                 <button @click="changeTheme">Change Theme</button>
                 <slot name="links"></slot>
             </div>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    props: ['theme', 'showModalTwo'],
+    props: ['theme'],
     methods: {
         closeModal() {
             this.$emit('close')
