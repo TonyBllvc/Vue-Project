@@ -6,8 +6,33 @@
             <input type="text" v-model="email" required />
             <label>Password: </label>
             <input type="password" v-model="password" required />
+
+            <label>Role: </label>
+            <select v-model="role">
+                <option value="developer">Web Developer</option>
+                <option value="designer">Web Designer</option>
+            </select>
+
+            <div class="terms">
+                <input type="checkbox" v-model="terms" required>
+                <label> Accept terms and conditions</label>
+            </div>
         </div>
-        
+<!-- 
+        <div>
+            <input type="checkbox" value="Shaun" v-model="names">
+            <label> Shaun </label>
+        </div>
+
+        <div>
+            <input type="checkbox" value="Black" v-model="names">
+            <label> Black </label>
+        </div>
+
+        <div>
+            <input type="checkbox" value="Tony" v-model="names">
+            <label> Tony </label>
+        </div> -->
     </form>
 </template>
 
@@ -15,13 +40,14 @@
 
     export default {
         name: 'SignupForm',
-        // components: [
-
-        // ],
+        // components: {}
         data() {
             return {
                 email: '',
-                password: ''
+                password: '',
+                role: this.role || "",
+                terms: false,
+                // names: []
             }
         },
 
@@ -54,7 +80,8 @@
         font-weight: bold;
     }
 
-    input {
+    input,
+    select {
         display: block;
         padding: 5px 6px;
         width: 100%;
@@ -64,10 +91,19 @@
         color: #555;
     }
 
-    input:focus {
+    input:focus,
+    select:focus {
         border: none;
-        border-style: hidden;
-        border-bottom: #555 2px solid;
+        outline: none;
+        border-bottom: 2px solid #ddd;
+    }
+
+    input[type='checkbox'] {
+        display: inline-block;
+        width: 16px;
+        margin: 0 10px 0 0;
+        position: relative;
+        top: 2px;
     }
 
 </style>
