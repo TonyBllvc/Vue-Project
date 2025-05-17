@@ -1,12 +1,12 @@
 <template>
-    <form>
+    <form v-on:submit.prevent="handleSubmit">
         <!-- v-model: creates a two-way data binding -->
         <div>
             <label>Email: </label>
             <input type="text" v-model="email" required />
             <label>Password: </label>
             <input type="password" v-model="password" required />
-
+            <div v-if="passwordError" class="error"> {{ passwordError }}</div>
             <label>Role: </label>
             <select v-model="role">
                 <option value="developer">Web Developer</option>
@@ -18,7 +18,7 @@
 
             <div v-for="skill in skills" :key="skill" class="pill">
                 <span v-on:click="deleteSkill(skill)">
-                    {{ skill }} 
+                    {{ skill }}
                 </span>
             </div>
 
@@ -61,7 +61,8 @@
                 role: this.role || "",
                 terms: false,
                 tempSkill: '',
-                skills: []
+                skills: [],
+                passwordError: ''
                 // names: []
             }
         },
@@ -83,8 +84,15 @@
                 this.skills = this.skills.filter((e) => {
                     return e !== skill
                 })
-            }
+            },
+            handleSubmit() {
+                // Validate password
+                this.passwordError = this.password.length > 5 ? "" : "Password must be tleast 6 chars long"
 
+                if (!this.passwordError) {
+                    console.log('correct')
+                }
+            }
         }
 
 
@@ -141,7 +149,8 @@
         position: relative;
         top: 2px;
     }
-    .pill{
+
+    .pill {
         display: inline-block;
         margin: 10px 10px 0 0;
         padding: 6px 12px;
@@ -153,7 +162,8 @@
         color: #777;
         cursor: pointer;
     }
-    button{
+
+    button {
         background-color: #0b6dff;
         border: 0;
         padding: 10px 20px;
@@ -161,8 +171,15 @@
         color: white;
         border-radius: 20px;
     }
-    .submit{
-        text-align: center;
+
+    .submit {
+        text-align: center1;
+    }
+    .error{
+        color: #ff0062;
+        margin-top: 10px;
+        font-size: 0.8em;
+        font-weight: bold;
     }
     /* .clear {
         border: none;
