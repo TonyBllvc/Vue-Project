@@ -1,7 +1,20 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+Various projects and what they cover
 
+ -- cli-app
+// This code initializes a Vue 3 application, imports the main App component, and applies global styles.
+// Introduction to vue directives and how to manipulate them
+
+
+-- web-form
+// This is generally an introdution to a Vue 3 application setup.
+// It imports the necessary modules, including the main App component and global styles.
+// The `createApp` function is used to create a new Vue application instance, which is then mounted to the DOM element with the ID 'app'.
+// shows us how to manipulate: data, dom manipulation, handle events and render lists in Vue 3.
+// Shows us how to use options methods, computed properties, and lifecycle hooks in Vue 3.
+// NOTE: This code does not include routing, which is a common feature in Vue applications. 
+
+
+-- blvc-jobs
 // This program mainly converts the concepts of using Vue 2 to Vue 3.
 // It initializes a Vue 3 application, sets up routing, and mounts the app to the DOM.
 // It uses the `createApp` function from Vue 3 to create the app instance, applies the router, and mounts it to an HTML element with the ID 'app'.
@@ -9,4 +22,3 @@ import router from './router'
 // It shows you how to make requests to the backend(using json server for dummy data) and handle responses in a Vue 3 application.
 // Makes major use of Option's API, which is a common pattern in Vue 2, but still applicable in Vue 3.
 // NOTE: This code does not include composition API features, which are also available in Vue 3 for more advanced state management and reactivity.
-createApp(App).use(router).mount('#app')

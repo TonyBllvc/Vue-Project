@@ -11,3 +11,17 @@ After which, you install the project app inside a folder:
  b. Select 3.x (Preview)
  c. In dedicatd config files
  d. no (for the last yes/no question)
+
+
+NOTE: 
+ 1. space key:  used to select
+ 2. enter key: use to next the options menu
+
+Procedure:
+-- Select -- 
+a.  Manually select features 
+b. Babel, Router (make sure to unselect Linter / Formatter)
+c. 3.x
+d.  Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n): Y (select yes)
+e. In dedicated config files 
+f.  Save this as a preset for future projects? (y/N) n (select no)
