@@ -14,7 +14,7 @@
         setup(props) {
 
             const snippet = computed(() => {
-                return props?.post?.body?.substring(0, 100) + "..."
+                return props.post?.content.substring(0, 100) + "..."
             })
 
             return { snippet }

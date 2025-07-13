@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Understanding JSON in JavaScript",
+      "body": "JSON is a lightweight format for storing and transporting data.",
+      "tags": ["javascript", "json", "data-format"]
+    },
+    {
+      "id": 2,
+      "title": "Why Python is Great for Beginners",
+      "body": "Python has a simple syntax similar to English, which makes it easy for newcomers.",
+      "tags": ["python", "programming", "beginners"]
+    },
+    {
+      "id": 3,
+      "title": "How to Use Git Effectively",
+      "body": "Version control is essential for any developer. Git helps manage your code efficiently.",
+      "tags": ["git", "version-control", "productivity"]
+    }
+  ]
+}
