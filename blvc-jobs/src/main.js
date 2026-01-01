@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router' // import router from router folder
 
 // This program mainly converts the concepts of using Vue 2 to Vue 3.
 // It initializes a Vue 3 application, sets up routing, and mounts the app to the DOM.
