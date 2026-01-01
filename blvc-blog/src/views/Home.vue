@@ -13,6 +13,7 @@
 
 <script>
   import PostList from '@/components/PostList.vue';
+  import getPosts from '@/composables/getPosts';
   import { ref, } from 'vue';
 
   // @ is an alias to /src
@@ -21,37 +22,13 @@
     name: 'Home',
     components: { PostList },
     setup() {
-
-      const posts = ref([]);
-      const error = ref(null)
-
-      const load = async () => {
-        try {
-          let res = await fetch("http://localhost:8000/posts")
-
-          if (!res?.ok) {
-            throw Error('something went wrong')
-          }
-
-          const data = await res.json()
-
-          posts.value = data
-        } catch (err) {
-
-          error.value = err?.message
-          // console.log(err.value)
-        }
-      }
-
-      load()
-
-      const showPosts = ref(true)
-
-
+      const { posts, error, load } = getPosts();
+      
+      load();
+      
       return {
         posts,
         error,
-        showPosts
       }
     },
   }

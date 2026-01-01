@@ -8,7 +8,7 @@
 
 <script>
     import { onMounted, onUnmounted, onUpdated } from 'vue';
-import SinglePost from './SinglePost.vue';
+    import SinglePost from './SinglePost.vue';
 
     export default {
         name: 'PostList',
@@ -17,7 +17,7 @@ import SinglePost from './SinglePost.vue';
         setup(props) {
             // life cycle hooks cycle hooks within the composition api
             onMounted(() => {
-                console.log('component mountd')
+                console.log('component mounted')
             })
             onUnmounted(() => console.log('component unmounted'))
             onUpdated(() => console.log('component updated'))
